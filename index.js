@@ -70,7 +70,7 @@ function substitute(tmpl, originTime, now) {
             toTime += _n2(new Date(originTime).getMonth() + 1);
             break;
         case 'DD':
-            toTime += new Date(originTime).getDate();
+            toTime += _n2(new Date(originTime).getDate());
             break;
         case 'HH':
             toTime += _n2(new Date(originTime).getHours());

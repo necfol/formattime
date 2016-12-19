@@ -4,7 +4,7 @@
   "description": "appropriate time format",
   "main": "index.js",
   "scripts": {
-    "test": "dev"
+    "test": "./node_modules/.bin/mocha"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/necfol/formattime/issues"
   },
-  "homepage": "https://github.com/necfol/formattime#readme"
+  "homepage": "https://github.com/necfol/formattime#readme",
+  "devDependencies": {
+    "mocha": "^3.2.0"
+  }
 }
