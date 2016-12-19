@@ -1,0 +1,22 @@
+{
+  "name": "formattime",
+  "version": "0.0.1",
+  "description": "appropriate time format",
+  "main": "index.js",
+  "scripts": {
+    "test": "dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/necfol/formattime.git"
+  },
+  "keywords": [
+    "fixTime"
+  ],
+  "author": "Necfol",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/necfol/formattime/issues"
+  },
+  "homepage": "https://github.com/necfol/formattime#readme"
+}
