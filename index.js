@@ -84,7 +84,7 @@ function substitute(tmpl, originTime, now) {
     return substitute(tmpl.replace(evaluate, toTime), originTime, now);
 }
 function fixTime(originTime, format) {
-    var now;
+    var now, nowByDay;
     if (arguments.length !== 2) {
         throw new Error('入参错误');
     }
@@ -95,7 +95,8 @@ function fixTime(originTime, format) {
         throw new Error(format + '转换格式错误');
     }
     originTime = Number(originTime);
-    now = new Date().getTime();
+    now = +new Date();
+    nowByDay = +new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate())
     for (var i = 0; i < format.length; i++) {
         if (!format[i].separate || !format[i].formateStyle) {
             throw  new Error('no seprate or no formateStyle');
@@ -103,13 +104,17 @@ function fixTime(originTime, format) {
         if (typeof format[i].separate != 'number') {
             throw  new Error(format[i].separate + ' not number');
         }
-        if (originTime >= now + format[i].separate) {
+        if(format[i].byDay) {
+            if(originTime >= nowByDay + format[i].separate) {
+                return substitute(format[i].formateStyle, originTime, nowByDay)
+            } else {
+                continue;
+            }
+        } else if (originTime >= now + format[i].separate) {
             return substitute(format[i].formateStyle, originTime, now)
         } else {
             continue;
         }
-
     }
-
 }
 module.exports = fixTime;
